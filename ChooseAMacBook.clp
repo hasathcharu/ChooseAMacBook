@@ -200,7 +200,7 @@
   )
 )
 
-(defrule p1 
+(defrule start_rule 
   ?p <- (start)
 =>
   (printout t crlf crlf "Hello Welcome to Apple MacBook Expert Support. We will help you choose the Mac that is right for you. Please answer the following questions to help you choose your dream Mac." crlf)
