@@ -8,6 +8,8 @@
   (slot capacity)
 )
 
+; Fact Definition
+
 (deffacts laptops
   (
     laptop 
@@ -203,7 +205,7 @@
 (defrule start_rule 
   ?p <- (start)
 =>
-  (printout t crlf crlf "Hello Welcome to Apple MacBook Expert Support. We will help you choose the Mac that is right for you. Please answer the following questions to help you choose your dream Mac." crlf)
+  (printout t crlf crlf "Hello Welcome to Apple MacBook Expert Support. I will help you choose the Mac that is right for you. Please answer the following questions to help you choose your dream Mac." crlf)
   (printout t "So to start off, for what kind of purpose are you looking for a MacBook?")
   (printout t crlf crlf)
   (printout t "1. General (Web Browsing and Social Media, Video Calls, Word Processing, Spreadsheets, etc.)" crlf)
@@ -217,11 +219,13 @@
   (retract ?p)
 )
 
+; Utility Rules
+
 (defrule print_laptop_info
   (laptop_code ?code)
   (laptop (code ?code) (name ?name) (processor ?processor) (cpu_cores ?cpu_cores) (gpu_cores ?gpu_cores) (ram ?ram) (capacity ?capacity))
   =>
-  (printout t crlf "Here is the laptop that we recommend for you." crlf crlf)
+  (printout t crlf "Here is the laptop that I recommend for you." crlf crlf)
   (printout t "Name     : " ?name crlf)
   (printout t "Processor: " ?processor crlf)
   (printout t "CPU Cores: " ?cpu_cores crlf)
@@ -282,6 +286,10 @@
   (printout t crlf crlf)
   (assert (graphics3d_print 0))
 )
+
+; End of Utility Rules
+
+; Logical Rules
 
 (defrule uc1
   (usecase 1) 
@@ -374,7 +382,7 @@
   (usecase 2)
   (commitment 1)
 =>
-  (printout t "I understand that you are trying to get a MacBook for programming and development as an amateur student developer." crlf)
+  (printout t "I understand that you are trying to get a MacBook for programming and development as an amateur student developer. For a student developer, even the lowest speced MacBook is adequate. However, I can suggest you better ones depending on your budget." crlf)
   (assert (budget_print 1))
 )
 
@@ -934,6 +942,11 @@
   (printout t "I understand that you are trying to get a MacBook for gaming at a high budget." crlf)
   (assert (laptop_code MBPro16_M2Pro_12C_19C_16G_1TB))
 )
+
+; End of Logical Rules
+
+; Startup
+
 (deffacts starttup
 (start)
 ) 
