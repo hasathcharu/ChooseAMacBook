@@ -202,6 +202,8 @@
   )
 )
 
+; Start Rule
+
 (defrule start_rule 
   ?p <- (start)
 =>
